@@ -7,5 +7,7 @@
     </li>
     <li>
         <a href="${pageContext.request.contextPath}/owners">Lista właścicieli zwierząt</a>
+    </li>    <li>
+        <a href="${pageContext.request.contextPath}/owner/form">Formularz dodawania właścicieli zwierząt</a>
     </li>
 </ul>
