@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.net.CookieManager" %>
 <%@ page import="java.net.CookiePolicy" %><%--
@@ -11,30 +15,37 @@
 <html>
 <head>
     <title>Index page</title>
+    <jsp:include page="headers.jsp"/>
 </head>
 <body>
-<h1>
+<div class="container">
+    <jsp:include page="navigator.jsp"/>
 
-    <%
-        CookieManager cm = new CookieManager();
-        cm.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
+    <h6>
 
-        String userName = request.getParameter("name");
-        Cookie[] cookies = request.getCookies();
+        <%
+            CookieManager cm = new CookieManager();
+            cm.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
 
-        if (userName == null) {
-            out.print("Hello user!");
-        } else {
-            out.print("Hello " + userName + "!");
-        }
-        out.print("<br>");
-        for (Cookie cookie : cookies) {
-            out.print(cookie.getName());
+            String userName = request.getParameter("name");
+            Cookie[] cookies = request.getCookies();
+
+            if (userName == null) {
+                out.print("Hello user!");
+            } else {
+                out.print("Hello " + userName + "!");
+            }
             out.print("<br>");
-            out.print(cookie.getValue());
-        }
-    %>
+            for (Cookie cookie : cookies) {
+                out.print(cookie.getName());
+                out.print("<br>");
+                out.print(cookie.getValue());
+            }
+        %>
 
-</h1>
+    </h6>
+
+</div>
+<jsp:include page="footers.jsp"/>
 </body>
 </html>
