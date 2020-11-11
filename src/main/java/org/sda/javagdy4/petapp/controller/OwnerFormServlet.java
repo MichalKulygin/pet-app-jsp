@@ -31,6 +31,7 @@ public class OwnerFormServlet extends HttpServlet {
         Owner owner = new Owner();
         owner.setFirstName(req.getParameter("first_name_field"));
         owner.setLastName(req.getParameter("last_name_field"));
+        owner.setAge(Integer.parseInt(req.getParameter("age_field")));
         owner.setSex(OwnerSex.valueOf(req.getParameter("sex_field")));
 
         ownerEntityDao.saveOrUpdate(owner);

@@ -26,6 +26,10 @@
             <input type="text" name="last_name_field"/>
         </div>
         <div>
+            <label>Age</label>
+            <input type="number" step="1" min="1" max="99" name="age_field"/>
+        </div>
+        <div>
             <label>Sex</label>
             <select name="sex_field">
                 <c:forEach items="${requestScope.availableSex}" var="sex">
