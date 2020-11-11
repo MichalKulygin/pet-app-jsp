@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+
 <html>
 <head>
     <title>Owner List</title>
@@ -37,13 +40,16 @@
                         ${owner.lastName}
                 </td>
                 <td>
-                        ${owner.sex}
+                        ${owner.sex.commonName}
                 </td>
                 <td>
                         ${owner.age}
                 </td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
-                        <%--                <a href="${pageContext.request.contextPath}/student/remove?stId=${student.id}">Remove</a>--%>
+                    <a href="${pageContext.request.contextPath}/owner/remove?ownerId=${owner.id}">Remove</a>
                         <%--                <a href="${pageContext.request.contextPath}/student/details?id=${student.id}">Details</a>--%>
                         <%--                <a href="${pageContext.request.contextPath}/student/edit?id=${student.id}">Edit</a>--%>
                 </td>

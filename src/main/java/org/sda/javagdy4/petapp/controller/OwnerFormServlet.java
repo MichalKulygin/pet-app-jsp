@@ -34,5 +34,7 @@ public class OwnerFormServlet extends HttpServlet {
         owner.setSex(OwnerSex.valueOf(req.getParameter("sex_field")));
 
         ownerEntityDao.saveOrUpdate(owner);
+        resp.sendRedirect(req.getContextPath() + "/owners");
+
     }
 }
