@@ -2,6 +2,7 @@ package org.sda.javagdy4.petapp.controller;
 
 import org.sda.javagdy4.petapp.database.EntityDao;
 import org.sda.javagdy4.petapp.model.Owner;
+import org.sda.javagdy4.petapp.model.OwnerSex;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,9 +19,20 @@ public class OwnerFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        OwnerSex[] ownerSex = OwnerSex.values();
+        req.setAttribute("availableSex", ownerSex);
+        req.getRequestDispatcher("/owner_form.jsp").forward(req, resp);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Owner owner = new Owner();
+        owner.setFirstName(req.getParameter("first_name_field"));
+        owner.setLastName(req.getParameter("last_name_field"));
+        owner.setSex(OwnerSex.valueOf(req.getParameter("sex_field")));
+
+        ownerEntityDao.saveOrUpdate(owner);
     }
 }
