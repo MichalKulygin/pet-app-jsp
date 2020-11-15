@@ -1,8 +1,7 @@
 package org.sda.javagdy4.petapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,6 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class Owner {
 
     @Id
@@ -25,12 +25,17 @@ public class Owner {
     private Integer age;
 
 
-    //TODO
+    @Formula("(SELECT AVG(p.age) FROM pet p where p.owner_id = id)")
     private Double petsAgeAverage;
+
+    @Formula("(SELECT COUNT(p.name) FROM pet p where p.owner_id = id)")
     private Integer petsNumber;
-//    private Set<Pet> petSet;
 
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+
+    private Set<Pet> petSet;
 }
-
 
 

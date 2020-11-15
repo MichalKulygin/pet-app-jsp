@@ -19,5 +19,6 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">false</property>
         <mapping class="org.sda.javagdy4.petapp.model.Owner"/>
+        <mapping class="org.sda.javagdy4.petapp.model.Pet"/>
     </session-factory>
 </hibernate-configuration>
