@@ -17,24 +17,28 @@
 <div class="container">
     <jsp:include page="navigator.jsp"/>
     <form action="${pageContext.request.contextPath}/owner/form" method="post">
+        <input type="hidden" name="modifiedOwnerId" value="${requestScope.modifiedOwner.id}">
         <div>
             <label>First name:</label>
-            <input type="text" name="first_name_field"/>
+            <input type="text" name="first_name_field" value="${requestScope.modifiedOwner.firstName}"/>
         </div>
         <div>
             <label>Last name:</label>
-            <input type="text" name="last_name_field"/>
+            <input type="text" name="last_name_field" value="${requestScope.modifiedOwner.lastName}"/>
         </div>
         <div>
             <label>Age</label>
-            <input type="number" step="1" min="1" max="99" name="age_field"/>
+            <input type="number" step="1" min="1" max="99" name="age_field" value="${requestScope.modifiedOwner.age}"/>
         </div>
         <div>
             <label>Sex</label>
             <select name="sex_field">
-                <c:forEach items="${requestScope.availableSex}" var="sex">
-                    <option value="${sex}">${sex.commonName}</option>
-                </c:forEach>
+            <c:if test="${requestScope.modifiedOwner.sex.commonName!=null}">
+                <option value="${sex}">${requestScope.modifiedOwner.sex.commonName}</option>
+            </c:if>
+            <c:forEach items="${requestScope.availableSex}" var="sex">
+                <option value="${sex}">${sex.commonName}</option>
+            </c:forEach>
             </select>
         </div>
 
