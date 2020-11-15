@@ -50,7 +50,7 @@
                 <td></td>
                 <td>
                     <a href="${pageContext.request.contextPath}/owner/remove?ownerId=${owner.id}">Remove</a>
-                        <%--                <a href="${pageContext.request.contextPath}/student/details?id=${student.id}">Details</a>--%>
+                    <a href="${pageContext.request.contextPath}/owner/details?id=${owner.id}">Details</a>
                     <a href="${pageContext.request.contextPath}/owner/edit?id=${owner.id}">Edit</a>
                 </td>
             </tr>
