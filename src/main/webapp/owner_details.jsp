@@ -60,19 +60,23 @@
                         <th>Pure race</th>
                         <th>Race</th>
                         <th>Owner</th>
+                        <th>Action</th>
                     </tr>
-                    <%--                    <c:forEach items="${requestScope.studentToDisplay.gradeSet}" var="grade">--%>
-                    <%--                        <tr>--%>
-                    <%--                            <td>${grade.id}</td>--%>
-                    <%--                            <td>${grade.value}</td>--%>
-                    <%--                            <td>${grade.timeCreated}</td>--%>
-                    <%--                            <td>${grade.subject}</td>--%>
-                    <%--                            <td><a href="${pageContext.request.contextPath}/grade/remove?gradeId=${grade.id}">Remove</a>--%>
-                    <%--                            </td>--%>
-                    <%--                            <td><a href="${pageContext.request.contextPath}/grade/edit?gradeId=${grade.id}">Edit</a>--%>
-                    <%--                            </td>--%>
-                    <%--                        </tr>--%>
-                    <%--                    </c:forEach>--%>
+                    <c:forEach items="${requestScope.ownerToDisplay.petSet}" var="pet">
+                        <tr>
+                            <td>${pet.id}</td>
+                            <td>${pet.name}</td>
+                            <td>${pet.age}</td>
+                            <td>${pet.owner.firstName}</td>
+                            <td>${pet.weight}</td>
+                            <td>${pet.pureRace}</td>
+                            <td>${pet.race}</td>
+                            <td><a href="${pageContext.request.contextPath}/grade/remove?gradeId=${grade.id}">Remove</a>
+                            </td>
+                            <td><a href="${pageContext.request.contextPath}/grade/edit?gradeId=${grade.id}">Edit</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </table>
             </div>
         </div>
