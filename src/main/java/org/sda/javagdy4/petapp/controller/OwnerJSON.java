@@ -26,10 +26,13 @@ public class OwnerJSON extends HttpServlet {
 
         List<Owner> listOfOwners = ownerEntityDao.findAll(Owner.class);
 
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        String s = objectMapper.writeValueAsString(listOfOwners.toString());
+
         PrintWriter out = resp.getWriter();
 
-        out.println(listOfOwners);
+        out.println(s);
 
     }
-
 }

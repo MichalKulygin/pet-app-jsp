@@ -1,5 +1,6 @@
 package org.sda.javagdy4.petapp.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.Formula;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public class Owner {
 
     @Id

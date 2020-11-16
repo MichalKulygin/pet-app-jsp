@@ -7,7 +7,15 @@
     </li>
     <li>
         <a href="${pageContext.request.contextPath}/owners">Lista właścicieli zwierząt</a>
-    </li>    <li>
+    </li>
+    <li>
         <a href="${pageContext.request.contextPath}/owner/form">Formularz dodawania właścicieli zwierząt</a>
+    </li>
+    <br>
+    <li>
+        <a href="${pageContext.request.contextPath}/owners-json">Owners json</a>
+    </li>
+    <li>
+        <a href="${pageContext.request.contextPath}//pettype">pettype-json /TODO cascade-dropdown-list/</a>
     </li>
 </ul>
