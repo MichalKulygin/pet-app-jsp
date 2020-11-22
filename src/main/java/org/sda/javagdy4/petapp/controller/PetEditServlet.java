@@ -25,46 +25,19 @@ public class PetEditServlet extends HttpServlet {
         String petIdString = req.getParameter("petId");
 
         Long petId = Long.parseLong(petIdString);
-        Long ownerId = null;
 
         Optional<Pet> petOptional = petEntityDao.findById(petId, Pet.class);
 
         if (petOptional.isPresent()) {
             Pet pet = petOptional.get();
-
-            ownerId = pet.getOwner().getId();
+            Race[] race = Race.values();
+            Long ownerId = pet.getOwner().getId();
 
             req.setAttribute("modifiedPetAttribute", pet);
-            req.getRequestDispatcher("/pet_edit.jsp");
+            req.setAttribute("ownerIdAttribute", ownerId);
+            req.setAttribute("availableRace", race);
+            req.getRequestDispatcher("/pet_form.jsp").forward(req, resp);
         }
-
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String petIdString = req.getParameter("modifiedPetId");
-        Long petId = Long.parseLong(petIdString);
-
-        Optional<Pet> pet = petEntityDao.findById(petId, Pet.class);
-
-        String ownerId = null;
-
-        if (pet.isPresent()) {
-
-            Pet petUpdated = pet.get();
-
-            petUpdated.setName(req.getParameter("name_field"));
-            petUpdated.setAge(Integer.parseInt(req.getParameter("age_field")));
-            petUpdated.setWeight(Double.parseDouble(req.getParameter("wight_field")));
-            petUpdated.setRace(Race.valueOf(req.getParameter("race_field")));
-
-            petEntityDao.saveOrUpdate(petUpdated);
-            ownerId = String.valueOf((petUpdated.getOwner().getId()));
-        }
-
-        resp.sendRedirect(req.getContextPath() + "/owner/details?id=" + ownerId);
 
     }
 }

@@ -47,13 +47,24 @@ public class PetFormServlet extends HttpServlet {
 
         String ownerIdString = req.getParameter("ownerId");
         Long ownerId = Long.parseLong(ownerIdString);
-        Optional<Owner> owner = ownerEntityDao.findById(ownerId, Owner.class);
+        Optional<Owner> ownerOptional = ownerEntityDao.findById(ownerId, Owner.class);
 
-        if (owner.isPresent()) {
-            Owner o = owner.get();
+        String petIdString = req.getParameter("petId");
+        Long petId = Long.parseLong(petIdString);
+        Optional<Pet> petOptional = petEntityDao.findById(petId, Pet.class);
+
+        if (ownerOptional.isPresent()) {
+            Owner o = ownerOptional.get();
 
             Pet pet = new Pet();
+
+            if(petOptional.isPresent()){
+                Pet p = petOptional.get();
+                pet.setId(p.getId());
+            }
+
             pet.setOwner(o);
+//            pet.setId(Long.parseLong(req.getParameter("petId")));
             pet.setName(req.getParameter("name_field"));
             pet.setAge(Integer.parseInt(req.getParameter("age_field")));
             pet.setWeight(Double.parseDouble(req.getParameter("wight_field")));

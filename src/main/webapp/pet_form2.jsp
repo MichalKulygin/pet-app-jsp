@@ -17,27 +17,28 @@
 <div class="container">
     <jsp:include page="navigator.jsp"/>
     <form action="${pageContext.request.contextPath}/pet/form" method="post">
-        <input type="hidden"  value="${requestScope.ownerIdAttribute}" readonly name="ownerId"/>
-        <input type="hidden"  value="${requestScope.modifiedPetAttribute.id}" readonly name="petId"/>
+        <input type="hidden" value="${requestScope.ownerIdAttribute}" readonly name="ownerId"/>
         <div>
             <label>Name:</label>
-            <input type="text" name="name_field" value="${requestScope.modifiedPetAttribute.name}"/>
+            <input type="text" name="name_field" value="${requestScope.modifiedPet.name}"/>
         </div>
         <div>
             <label>Age</label>
-            <input type="number" step="1" min="1" max="99" name="age_field"
-                   value="${requestScope.modifiedPetAttribute.age}"/>
+            <input type="number" step="1" min="1" max="99" name="age_field" value="${requestScope.modifiedPet.age}"/>
         </div>
         <div>
             <label>Weight</label>
             <input type="number" step="1" min="1" max="99" name="wight_field"
-                   value="${requestScope.modifiedPetAttribute.weight}"/>
+                   value="${requestScope.modifiedPet.weight}"/>
         </div>
         <div>
             <label>Race</label>
             <select name="race_field">
+                <%--                <c:if test="${requestScope.modifiedOwner.sex.commonName!=null}">--%>
+                <%--                    <option value="${sex}">${requestScope.modifiedOwner.sex.commonName}</option>--%>
+                <%--                </c:if>--%>
                 <c:forEach items="${requestScope.availableRace}" var="race">
-                    <option value="${race}" ${requestScope.modifiedPetAttribute.race == race ? 'selected' : ''}>${race.commonName}</option>
+                    <option value="${race}">${race.commonName}</option>
                 </c:forEach>
             </select>
         </div>
