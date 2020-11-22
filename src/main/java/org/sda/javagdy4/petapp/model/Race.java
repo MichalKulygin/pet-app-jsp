@@ -1,12 +1,12 @@
 package org.sda.javagdy4.petapp.model;
 
 public enum Race {
-    LABRADOR("Labi"),
-    HUSKY("Niby wilk"),
-    GOLDEN_RETREVER("Goldenek"),
+    LABRADOR("Labrador"),
+    HUSKY("Haski"),
+    GOLDEN_RETREVER("Goldie"),
     PUG("Mops"),
     JAMNIK("Jamnik"),
-    CHIUHAUAHUA("Cziłałą");
+    CHIUHAUAHUA("Cziłała");
 
     private final String commonName;
 

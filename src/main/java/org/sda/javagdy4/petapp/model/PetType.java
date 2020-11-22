@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PetType {
-    CAT("pussy"),
+    CAT("cat"),
     DOG("dog");
 
     private final String displayName;

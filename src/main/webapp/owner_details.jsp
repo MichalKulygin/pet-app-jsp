@@ -59,7 +59,6 @@
                         <th>Weight</th>
                         <th>Pure race</th>
                         <th>Race</th>
-                        <th>Owner</th>
                         <th>Action</th>
                     </tr>
                     <c:forEach items="${requestScope.ownerToDisplay.petSet}" var="pet">
@@ -71,10 +70,9 @@
                             <td>${pet.weight}</td>
                             <td>${pet.pureRace}</td>
                             <td>${pet.race}</td>
-                            <td><a href="${pageContext.request.contextPath}/grade/remove?gradeId=${grade.id}">Remove</a>
+                            <td><a href="${pageContext.request.contextPath}/pet/remove?petId=${pet.id}">Remove</a>
                             </td>
-                            <td><a href="${pageContext.request.contextPath}/grade/edit?gradeId=${grade.id}">Edit</a>
-                            </td>
+                            <td><a href="${pageContext.request.contextPath}/pet/edit?petId=${pet.id}">Edit</a></td>
                         </tr>
                     </c:forEach>
                 </table>
