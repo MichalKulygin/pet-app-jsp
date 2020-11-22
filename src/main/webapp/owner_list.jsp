@@ -30,26 +30,15 @@
         </tr>
         <c:forEach items="${requestScope.owners}" var="owner">
             <tr>
+                <td>${owner.id}</td>
+                <td>${owner.firstName}</td>
+                <td>${owner.lastName}</td>
+                <td>${owner.sex.commonName}</td>
+                <td>${owner.age}</td>
+                <td>${owner.petsNumber}</td>
+                <td>${owner.petsAgeAverage}</td>
                 <td>
-                        ${owner.id}
-                </td>
-                <td>
-                        ${owner.firstName}
-                </td>
-                <td>
-                        ${owner.lastName}
-                </td>
-                <td>
-                        ${owner.sex.commonName}
-                </td>
-                <td>
-                        ${owner.age}
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/owner/remove?ownerId=${owner.id}">Remove</a>
+                    <a href="${pageContext.request.contextPath}/owner/remove?ownerId=${owner.id}" onclick="return confirm('Are you sure?')">Remove</a>
                     <a href="${pageContext.request.contextPath}/owner/details?id=${owner.id}">Details</a>
                     <a href="${pageContext.request.contextPath}/owner/edit?id=${owner.id}">Edit</a>
                 </td>

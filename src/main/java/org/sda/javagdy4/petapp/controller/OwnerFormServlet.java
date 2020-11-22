@@ -28,7 +28,14 @@ public class OwnerFormServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String modifiedIdString = req.getParameter("modifiedOwnerId");
+        Long modifiedId = null;
+        if (modifiedIdString != null && !modifiedIdString.isEmpty()) {
+            modifiedId = Long.parseLong(modifiedIdString);
+        }
+
         Owner owner = new Owner();
+        owner.setId(modifiedId);
         owner.setFirstName(req.getParameter("first_name_field"));
         owner.setLastName(req.getParameter("last_name_field"));
         owner.setAge(Integer.parseInt(req.getParameter("age_field")));

@@ -70,7 +70,7 @@
                             <td>${pet.weight}</td>
                             <td>${pet.pureRace}</td>
                             <td>${pet.race}</td>
-                            <td><a href="${pageContext.request.contextPath}/pet/remove?petId=${pet.id}">Remove</a>
+                            <td><a href="${pageContext.request.contextPath}/pet/remove?petId=${pet.id}" onclick="return confirm('Are you sure?')">Remove</a>
                             </td>
                             <td><a href="${pageContext.request.contextPath}/pet/edit?petId=${pet.id}">Edit</a></td>
                         </tr>

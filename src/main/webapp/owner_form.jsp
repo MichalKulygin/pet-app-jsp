@@ -33,12 +33,9 @@
         <div>
             <label>Sex</label>
             <select name="sex_field">
-            <c:if test="${requestScope.modifiedOwner.sex.commonName!=null}">
-                <option value="${sex}">${requestScope.modifiedOwner.sex.commonName}</option>
-            </c:if>
-            <c:forEach items="${requestScope.availableSex}" var="sex">
-                <option value="${sex}">${sex.commonName}</option>
-            </c:forEach>
+                <c:forEach items="${requestScope.availableSex}" var="sex">
+                    <option value="${sex}" ${requestScope.modifiedOwner.sex == sex ? 'selected' : ''}>${sex.commonName}</option>
+                </c:forEach>
             </select>
         </div>
 
