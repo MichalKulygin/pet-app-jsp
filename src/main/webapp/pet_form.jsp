@@ -17,8 +17,8 @@
 <div class="container">
     <jsp:include page="navigator.jsp"/>
     <form action="${pageContext.request.contextPath}/pet/form" method="post">
-        <input type="hidden"  value="${requestScope.ownerIdAttribute}" readonly name="ownerId"/>
-        <input type="hidden"  value="${requestScope.modifiedPetAttribute.id}" readonly name="petId"/>
+        <input type="hidden" value="${requestScope.ownerIdAttribute}" readonly name="ownerId"/>
+        <input type="hidden" value="${requestScope.modifiedPetAttribute.id}" readonly name="petId"/>
         <div>
             <label>Name:</label>
             <input type="text" name="name_field" value="${requestScope.modifiedPetAttribute.name}"/>
@@ -32,6 +32,13 @@
             <label>Weight</label>
             <input type="number" step="1" min="1" max="99" name="wight_field"
                    value="${requestScope.modifiedPetAttribute.weight}"/>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="pureRace_field"
+                       <c:if test="${requestScope.modifiedPetAttribute.pureRace}">checked</c:if>>
+                <span></span>
+            </label>
         </div>
         <div>
             <label>Race</label>
